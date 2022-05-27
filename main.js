@@ -4,10 +4,8 @@ player.draw();
 let set = setInterval(()=>{
     player.move()
     checkFood();
-    checkWall()
-
+    checkWall();
 },200);
-
 //chặn vị trí k cho bấm ngược lại
 let tempPosition = new Position(-1,0);
 let food = new Food()
@@ -51,26 +49,28 @@ function run() {
         }
     }
     player.draw();
-
 }
 function checkFood() {
     if(food.x === player.body[0].x && food.y === player.body[0].y){
+        player.audio.play()
         addFood();
-        food.randomFood()
+        count +=1001;
+        document.getElementById('ting').innerHTML = `Score: ${count}`;
     }
-
 }
 
 function addFood() {
     //tăng thêm chiều dài cho rắn
     let addX = player.body[snake_length - 1].x - player.body[snake_length - 2].x;
-    let addY = player.body[snake_length - 1].y - player.body[snake_length - 2].y;
+    let addY = player.body[snake_length - 1].y- player.body[snake_length - 2].y ;
     let newSnake = new Position(
         player.body[snake_length-1].x + addX,
         player.body[snake_length-1].y + addY
     )
     player.body.push(newSnake);
     player.draw()
+    food.randomFood()
+
 }
 
 function checkWall() {
@@ -90,3 +90,14 @@ function checkWall() {
     player.draw()
 }
 
+
+function reset(){
+    clearInterval(set)
+     setInterval(()=>{
+        player.move()
+        checkFood();
+        checkWall();
+    },200);
+    player.draw()
+    food.randomFood();
+}

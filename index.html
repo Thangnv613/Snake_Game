@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onkeydown="run()" onprogress="checkFood()">
-    <canvas style="border: 1px solid" id="mysnack" width="500" height="500">
-
     <div id="container">
-        <h2 id="ui">Score:00</h2>
-        <div id="game-play"></div>
-        <div id="author">
-            <h1>Giun</h1>
-            <span>Cầm Cập</span>
+
+        <img src="linhtinh/295-2952520_snake-counting-game.png" alt="">
+
+        <h2 id="ting">Score: 00</h2>
+        <div class="canvas">
+            <canvas style="border: 1px solid" id="mysnack" width="500" height="500"></canvas>
         </div>
+
+            <div id="game-play"></div>
+
+        <div class="group-btn">
+            <button type="button" class="btn btn-primary" onclick="start()">Start</button>
+            <button type="button" class="btn btn-danger" onclick="reset()">Reset</button>
+        </div>
+
     </div>
+
 
 
 
     <script src="snake.js"></script>
     <script src="food.js"></script>
     <script src="main.js"></script>
-</canvas>
 </body>
 </html>

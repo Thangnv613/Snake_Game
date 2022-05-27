@@ -6,6 +6,7 @@ class Food{
     drawFood(){
         ctx.fillStyle = 'green';
         ctx.fillRect(this.x,this.y,unit,unit);
+
     }
     clearFood(){
         ctx.fillStyle = background;

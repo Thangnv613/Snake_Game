@@ -1,1 +1,45 @@
-#
+:root{
+    --color: #3b3b86;
+    --color: #4cffd7;
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+#container {
+    display: block;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+img{
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+    color: #7bd806;
+}
+
+h2{
+    margin-left: 560px;
+    font-size: 35px;
+}
+.canvas{
+    display: flex;
+    justify-content: center;
+}
+.group-btn{
+    font-size: 30px;
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+

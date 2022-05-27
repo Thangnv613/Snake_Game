@@ -1,6 +1,6 @@
 const CANVAS = document.getElementById('mysnack');
-const game_size = 800;
-const unit = 40;
+const game_size = 540;
+const unit = 30;
 const snack_color = 'black';
 CANVAS.width = CANVAS.height = game_size;
 const ctx = CANVAS.getContext('2d');
@@ -21,6 +21,8 @@ class Snack{
             new Position( unit*5,unit*3),
         ]
         this.speed = new Position(-1,0)
+        this.audio = new Audio('linhtinh/score.mp3')
+        this.audio2 = new Audio('linhtinh/die.mp3')
     }
     draw() {
         if (this.body[0].x)
@@ -44,15 +46,15 @@ class Snack{
         }
     }
     // xóa vị trí khi snack chạy
-    clear(){
+    clear() {
         ctx.fillStyle = background;
-        ctx.fillRect( this.body[0].x,this.body[0].y,unit,unit);
+        ctx.fillRect(this.body[0].x, this.body[0].y, unit, unit);
         ctx.fillStyle = background;
-        for(let i = 1; i < this.body.length; i++){
-            ctx.fillRect( this.body[i].x,this.body[i].y,unit,unit);
+        for (let i = 1; i < this.body.length; i++) {
+            ctx.fillRect(this.body[i].x, this.body[i].y, unit, unit);
             if (player.body[0].x === player.body[i].x && player.body[0].y === player.body[i].y && player.body.length >= 3) {
+                this.audio2.play()
                 clearInterval(set);
-                alert('You die!!')
             }
         }
     }
@@ -65,6 +67,7 @@ class Snack{
         }
         this.body[0].x += this.speed.x * unit;
         this.body[0].y += this.speed.y * unit;
+
         this.draw();
     }
 }
