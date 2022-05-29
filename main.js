@@ -75,6 +75,10 @@ function addFood() {
     player.draw()
     food.randomFood()
 
+    if (food.x === player.body[i].x && food.y === player.body[i].y)
+    {
+        food.randomFood()
+    }
 }
 
 function checkWall() {

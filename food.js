@@ -20,7 +20,6 @@ class Food{
     }
     randomFood(){
         this.clearFood();
-
         this.x = this.getRandomNumber();
         this.y = this.getRandomNumber();
         this.drawFood()
