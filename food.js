@@ -4,24 +4,26 @@ class Food{
         this.y = y;
     }
     drawFood(){
-        ctx.fillStyle = 'green';
-        ctx.fillRect(this.x,this.y,unit,unit);
+        CTX.fillStyle = 'green';
+        CTX.fillRect(this.x + 2,this.y + 2,UNIT-5,UNIT-5);
 
     }
     clearFood(){
-        ctx.fillStyle = background;
-        ctx.fillRect(this.x,this.y,unit,unit);
+        CTX.fillStyle = background;
+        CTX.fillRect(this.x+ 2,this.y+ 2,UNIT-5,UNIT-5);
     }
     getRandomNumber(){
-        let randomNumber = Math.floor(Math.random() * game_size)
-        ctx.fillRect(this.x,this.y,unit,unit)
-        randomNumber -= randomNumber % unit;
+        let randomNumber = Math.floor(Math.random() * GAME_SIZE)
+        CTX.fillRect(this.x,this.y,UNIT ,UNIT)
+        randomNumber -= randomNumber % (UNIT);
         return randomNumber;
     }
     randomFood(){
         this.clearFood();
+
         this.x = this.getRandomNumber();
         this.y = this.getRandomNumber();
         this.drawFood()
     }
+
 }

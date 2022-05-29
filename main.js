@@ -5,6 +5,7 @@ let set = setInterval(()=>{
     player.move()
     checkFood();
     checkWall();
+
 },200);
 //chặn vị trí k cho bấm ngược lại
 let tempPosition = new Position(-1,0);
@@ -49,14 +50,17 @@ function run() {
         }
     }
     player.draw();
+
 }
 function checkFood() {
     if(food.x === player.body[0].x && food.y === player.body[0].y){
         player.audio.play()
-        addFood();
-        count +=1001;
+        count +=1111;
         document.getElementById('ting').innerHTML = `Score: ${count}`;
+        addFood();
+
     }
+
 }
 
 function addFood() {
@@ -74,30 +78,27 @@ function addFood() {
 }
 
 function checkWall() {
-    player.clear()
     if (player.body[0].x < 0) {
-        player.body[0].x = game_size - unit;
+        player.body[0].x = GAME_SIZE - UNIT;
     }
     if (player.body[0].y < 0) {
-        player.body[0].y = game_size - unit;
+        player.body[0].y = GAME_SIZE - UNIT;
     }
-    if (player.body[0].x > game_size - unit) {
+    if (player.body[0].x > GAME_SIZE - UNIT) {
         player.body[0].x = 0;
     }
-    if (player.body[0].y > game_size - unit) {
+    if (player.body[0].y > GAME_SIZE - UNIT) {
         player.body[0].y = 0;
     }
-    player.draw()
 }
 
 
-function reset(){
-    clearInterval(set)
-     setInterval(()=>{
-        player.move()
-        checkFood();
-        checkWall();
-    },200);
-    player.draw()
-    food.randomFood();
-}
+// function reset(){
+//      setInterval(()=>{
+//         player.move()
+//         checkFood();
+//         checkWall();
+//     },200);
+//     player.draw()
+//     food.randomFood();
+// }
